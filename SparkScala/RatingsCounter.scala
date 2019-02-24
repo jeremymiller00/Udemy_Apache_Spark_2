@@ -26,8 +26,14 @@ object RatingsCounter {
 
     // Convert each line to a string, split it out by tabs, and extract the third field.
     // (The file format is userID, movieID, rating, timestamp)
-    val ratings = lines.map(x => x.toString().split("\t")(2))
+    // val ratings = lines.map(x => x.toString().split("\t")(2))
     
+    val ratings = data.select($"rating")
+
+
+// Result DataFrame contains `from`, `to` range and the `value`.
+val histogram = sc.parallelize((thresholds, thresholds.tail, _tmpHist).zipped.toList).toDF("from", "to", "value")
+
     // Count up how many times each value (rating) occurs
     val results = ratings.countByValue()
     
