@@ -49,8 +49,8 @@ println(s"The s prefix isn't limited to variables; I can includeany expression. 
                                                 //|  3
                                                
 // Using regular expressions:
-val theUltimateAnswer: String = "To life, the universe, andeverything is 42."
-                                                //>theUltimateAnswer : String = To life,the universe, andeverything is 42.
+val theUltimateAnswer: String = "To life, the universe, and everything is 42."
+                                                 //>theUltimateAnswer : String = To life,the universe, andeverything is 42.
                                                 //| 
 val pattern = """.* ([\d]+).*""".r              //> pattern  :scala.util.matching.Regex = .* ([\d]+).*
 val pattern(answerString) = theUltimateAnswer   //> answerString  :String = 42
@@ -71,4 +71,5 @@ val isBest: Boolean = picard == bestCaptain     //> isBest  :Boolean = true
 // Write some code that takes the value of pi, doubles it, and thenprints it within a string with
 // three decimal places of precision to the right.
 // Just write your code below here; any time you save the file itwill automatically display the results!
-
+val tau: Double = pi * 2
+println(f"This is tau: $tau%.3f")
